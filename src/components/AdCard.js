@@ -2,8 +2,8 @@ import React from 'react';
 
 const AdCard = ({ ad, onView, onDelete }) => {
   const getImageUrl = (imagePath) => {
-    // FIXED: Use production backend URL with /uploads/ prefix
-    return `https://paper-ads-backend.onrender.com/uploads/${imagePath}`;
+    // Now imagePath is a full Cloudinary URL
+    return imagePath;
   };
 
   const formatDate = (date) => {
