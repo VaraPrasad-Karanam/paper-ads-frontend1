@@ -67,7 +67,9 @@ const AdModal = ({
   const images = ad.images || [ad.imagePath];
   const currentImage = images[currentImageIndex];
 
-  const getImageUrl = (imagePath) => `http://localhost:5000/${imagePath}`;
+  // Use production backend URL
+  const getImageUrl = (imagePath) => `https://paper-ads-backend.onrender.com/${imagePath}`;
+  
   const formatDate = (date) => new Date(date).toLocaleDateString();
   const formatFileSize = (bytes) => {
     if (bytes === 0) return '0 Bytes';
@@ -172,6 +174,7 @@ const AdModal = ({
                   else handleZoomReset();
                 }}
                 onError={(e) => {
+                  console.log('Modal image load error:', e.target.src);
                   e.target.src = `data:image/svg+xml,<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="%23e0e0e0"/><text x="50%" y="50%" font-family="Arial, sans-serif" font-size="24" fill="%23333" text-anchor="middle" dy=".3em">Image not found</text></svg>`;
                 }}
               />
