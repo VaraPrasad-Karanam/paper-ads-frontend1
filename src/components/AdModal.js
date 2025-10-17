@@ -67,8 +67,8 @@ const AdModal = ({
   const images = ad.images || [ad.imagePath];
   const currentImage = images[currentImageIndex];
 
-  // Use production backend URL
-  const getImageUrl = (imagePath) => `https://paper-ads-backend.onrender.com/${imagePath}`;
+  // FIXED: Use production backend URL with /uploads/ prefix
+  const getImageUrl = (imagePath) => `https://paper-ads-backend.onrender.com/uploads/${imagePath}`;
   
   const formatDate = (date) => new Date(date).toLocaleDateString();
   const formatFileSize = (bytes) => {
